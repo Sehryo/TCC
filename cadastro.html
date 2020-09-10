@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastre-se!</title>
+    <style>
+        input{
+            display: block;
+        }
+        #senha{
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <form action="cadastro.php" method="POST" id="formCadastro" onsubmit="return validacao();">
+        <input type="text" name="nome" id="nome" placeholder="Digite seu nome completo">
+        <select name="genero" id="genero">
+            <option value="" style="display: none;">Selecione seu gênero</option>
+            <option value="M">Masculino</option>
+            <option value="F">Feminino</option>
+        </select>
+        <input type="text" name="email" id="email" placeholder="Digite seu email">
+        <input type="text" name="tel" id="tel" placeholder="Digite seu telefone">
+        <input type="date" name="dataNasc" id="dataNasc" placeholder="Digite sua data de nascimento" min="1910-01-01" max="2008-01-01" required>
+        <input type="password" name="senha" id="senha" placeholder="Digite sua senha"><button id="showPassword" type="button">Olho</button>
+        <input type="submit" value="Enviar">
+    </form>
+</body>
+<script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+<script type="text/javascript" src="js/jquery.mask.js"></script>
+<script type="text/javascript" src="js/masks.js"></script>
+<script type="text/javascript" src="js/validation.js"></script>
+</html>
