@@ -22,6 +22,13 @@ $genero = $_POST['genero'];
 
 $mysqli = new mysqli('localhost', 'root', '', 'db_culturama');
 
-$mysqli->query("INSERT INTO tb_usuario (nome_usuario, senha_usuario, email_usuario, telefone_usuario, genero_usuario) VALUES ('$nome', '$senha', '$email', '$tel', '$genero')");
-printf("Error: %s\n", $mysqli->error);
+$mysqli->query("INSERT INTO tb_usuario (nome_usuario, senha_usuario, email_usuario, telefone_usuario, dataNasc_usuario) VALUES ('$nome', '$senha', '$email', '$tel', '$dataNasc')");
+if($mysqli->affected_rows > 0){
+    echo (json_encode(array("codigoStatus" => 200)));
+}
+else{
+    echo (json_encode(array("codigoStatus" => 201)));
+}
+
+mysqli_close($mysqli);
 ?>
