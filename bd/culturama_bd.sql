@@ -8,7 +8,8 @@ CREATE TABLE tb_usuario(
     senha_usuario VARCHAR(256) NOT NULL,
     email_usuario VARCHAR(255) NOT NULL,
     telefone_usuario CHAR(13) NOT NULL,
-    dataNasc_usuario DATE NOT NULL
+    dataNasc_usuario DATE NOT NULL,
+    tags_usuario VARCHAR(255)
 );
 
 CREATE TABLE tb_organizador(
@@ -69,6 +70,7 @@ CREATE TABLE tb_evento(
     horario_saida TIME,
     id_organizador INT NOT NULL,
     id_endereco INT NOT NULL,
+    tags_evento VARCHAR(255),
     CONSTRAINT FK_id_organizador
     FOREIGN KEY(id_organizador)
     REFERENCES tb_organizador(id_organizador)

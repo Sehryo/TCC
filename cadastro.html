@@ -1,36 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastre-se!</title>
-    <style>
-        input{
-            display: block;
-        }
-        #senha{
-            display: inline-block;
-        }
-    </style>
+    <title> Cadastre-se! </title>
+    <link rel="stylesheet" href="estilos/style.css">
+    <link href="/fontawesome-free-5.14.0-web/css/fontawesome.css" rel="stylesheet">
+    <link href="/fontawesome-free-5.14.0-web/css/brands.css" rel="stylesheet">
+    <link href="/fontawesome-free-5.14.0-web/css/solid.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/7cc69e0e3a.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
-    <form action="cadastro.php" method="POST" id="formCadastro" action="cadastro.php">
-        <input type="text" name="nome" id="nome" placeholder="Digite seu nome completo">
-        <select name="genero" id="genero">
-            <option value="" style="display: none;">Selecione seu gênero</option>
-            <option value="M">Masculino</option>
-            <option value="F">Feminino</option>
-        </select>
-        <input type="text" name="email" id="email" placeholder="Digite seu email">
-        <input type="text" name="tel" id="tel" placeholder="Digite seu telefone">
-        <input type="date" name="dataNasc" id="dataNasc" placeholder="Digite sua data de nascimento" min="1910-01-01" max="2008-01-01" required>
-        <input type="password" name="senha" id="senha" placeholder="Digite sua senha"><button id="showPassword" type="button">Olho</button>
-        <input type="submit" value="Enviar">
-    </form>
+<div id="body"> 
+    <img class="login-wave" src="imagens/cad-wave.png">
+    <div class="c-container"> 
+        
+        <div class="login-titles">
+            <img class="cad-img" src="imagens/cad.svg">
+        </div>
+        
+        <div class="cad-container">
+            <form>
+                
+                <h2> Cadastro </h2>
+                
+                <div class="cad-item1">
+           		   <div class="div">
+                        <input type="text" class="form-item" name="nome" id="nome" placeholder="Digite seu nome completo">
+           		   </div>
+           		</div>
+                
+                <div class="cad-item2">
+           		   <div class="div">
+                        <input type="text" class="form-item" name="email" id="email" placeholder="Digite seu email">
+                    </div>
+                </div>
+                
+                <div class="cad-item3">
+           		   <div class="div">
+                        <input type="text" class="form-item" name="tel" id="tel" placeholder="Digite seu telefone">
+                    </div>
+                </div>
+                
+                <div class="cad-item4">
+           		   <div class="div">
+                        <input type="date" class="form-item" name="dataNasc" id="dataNasc" placeholder="Digite sua data de nascimento" min="1910-01-01" max="2008-01-01">
+                    </div>
+                </div>
+
+                <div class="cad-item5">
+                    <div class="div">
+                        <input type="password" class="form-item" name="senha" id="senha" placeholder="Digite sua senha">
+                  </div>
+                </div>
+
+                <input type="button" value="Cadastrar-se" class="btn-cad" id="enviar">
+                
+            </form>
+        </div>
+        
+    </div>
+</div>
 </body>
 <script type="text/javascript" src="js/jquery-3.5.1.js"></script>
 <script type="text/javascript" src="js/jquery.mask.js"></script>
 <script type="text/javascript" src="js/masks.js"></script>
 <script type="text/javascript" src="js/validation.js"></script>
 <script type="text/javascript" src="js/comands.js"></script>
+<script type="text/javascript" src="js/pass.js"></script>
 </html>

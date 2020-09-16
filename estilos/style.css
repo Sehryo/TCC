@@ -1,0 +1,314 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: roboto, sans-serif;
+}
+
+.login-wave
+{
+    width: 100%;
+    height: 50%;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+.l-container
+{
+    min-width: auto;
+    height: auto;
+    background-color: #0099FF;
+    background-image: -webkit-linear-gradient(2deg, #0099FF 50%, #ffff 50%);
+    box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.5);
+    position: relative;
+    width: 60%;
+    height: 550px;
+    margin: auto;
+    top: 50px;
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.login-img
+{
+    position: absolute;
+    width: 35%;
+    top: 100px;
+    left: 70px;
+}
+
+.login-titles
+{
+    padding-left: 70px;
+}
+
+.login-title
+{
+    color: #FF2626;
+    padding-top: 300px;  
+}
+
+.login-call
+{
+    text-transform: uppercase;
+    color: #FFFF;
+}
+
+.cad-call
+{
+	margin: 30px 0 0 0;
+}
+
+.log-cad
+{
+	text-decoration: none;
+	display: block;
+	padding: 15px 10px 5px 15px;
+	width: 50%;
+	height: 25px;
+	border-radius: 25px;
+	outline: none;
+	border: none;
+	border: 1px solid #ffff;
+	background-size: 200%;
+	font-size: 0.9rem;
+	color: #fff;
+	font-family: 'Poppins', sans-serif;
+	text-transform: uppercase;
+	margin: 10px 0 15px 0;
+	cursor: pointer;
+	transition: .5s;
+}
+
+.login-container
+{
+    display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+    margin-left: -40px;
+}
+
+.login-container h2{
+	margin: 30px 0 5px 0;
+	color: #0099FF;
+	text-transform: uppercase;
+	font-size: 2rem;
+}
+
+.login-container img{
+    height: 100px;
+}
+
+.login-container .input-div{
+	position: relative;
+    display: grid;
+    grid-template-columns: 7% 100%;
+    padding: 1px 0;
+}
+
+form
+{
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	display: flex;
+}
+
+.check 
+{
+	margin: 10px 0 10px 0;
+}
+
+.pass-button
+{
+	display: inline;
+}
+
+.btn-login
+{
+    display: block;
+	width: 80%;
+	height: 50px;
+	border-radius: 25px;
+	outline: none;
+	border: none;
+	background: #FF2626;;
+	background-size: 200%;
+	font-size: 1.2rem;
+	color: #fff;
+	font-family: 'Poppins', sans-serif;
+	text-transform: uppercase;
+	margin: 30px 0 15px 0;
+	cursor: pointer;
+	transition: .5s;
+}
+
+/* RESPONSIVIDADE */
+
+@media screen and (max-width: 1050px){
+	.container{
+		grid-gap: 5rem;
+	}
+    
+}
+
+@media screen and (max-width: 1000px){
+	form{
+		width: 290px;
+	}
+
+	.login-container h2{
+        font-size: 2.4rem;
+        margin: 8px 0;
+	}
+
+	.img img{
+		width: 400px;
+	}
+    
+        .login-title, .login-call
+    {
+        visibility: hidden;
+        z-index: -9999;
+    }
+}
+
+@media screen and (max-width: 900px){
+	.container{
+		grid-template-columns: 1fr;
+	}
+
+	.img{
+		display: none;
+	}
+
+	.wave{
+		display: none;
+	}
+
+	.login-container{
+		justify-content: center;
+	}
+}
+
+/* PÁGINA DE CADASTRO AAA */
+
+.c-container
+{
+    min-width: auto;
+    height: auto;
+    background-color: #FF2626;
+    background-image: -webkit-linear-gradient(2deg, #FF2626 50%, #ffff 50%);
+    box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.5);
+    position: relative;
+    width: 60%;
+    height: 550px;
+    margin: auto;
+    top: 50px;
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.cad-img
+{
+    position: absolute;
+    width: 35%;
+    top: 130px;
+    left: 50px;
+}
+
+.cad-container
+{
+    display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+    margin-left: -30px;
+}
+
+.cad-container h2{
+	margin: 0px 0 5px 0;
+	color: #FF2626;
+	text-transform: uppercase;
+	font-size: 2rem;
+}
+
+.cad-container img{
+    height: 100px;
+}
+
+.cad-container .input-div{
+	position: relative;
+    display: grid;
+	grid-template-columns: 7% 100%;
+	flex-direction: column;
+    margin: 7px 0;
+    padding: 1px 0;
+    border-bottom: 2px solid #d9d9d9;
+}
+
+.form-item 
+{
+	display: flex;
+
+	width: 250px;	
+	margin: 15px 0 5px 0;
+	height: 30px;
+
+	border-radius: 5px;
+	letter-spacing: 0.5px;
+	background: #EBE8E8;
+	border: none;
+	padding: 5px 0 5px 10px;
+	font-size: 0.8rem;
+}
+
+span{
+    position: absolute;
+    right: 15px;
+    transform: translate(0,-50%);
+    top: 60%;
+    cursor: pointer;
+}
+
+.fa{
+    font-size: 20px;
+    color: #7a797e;
+}
+
+.btn-cad
+{
+	margin-top: 25px;
+	padding: 10px 20px 10px 20px;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 13px;
+	line-height: 16px;
+
+	align-items: center;
+	text-align: center;
+
+	color: #FFFFFF;
+
+	background: #FF2626;
+	border-radius: 9px;
+	border: none;
+
+	cursor: pointer;
+
+	display: block;
+	width: 80%;
+	height: 50px;
+	border-radius: 25px;
+	outline: none;
+	border: none;
+	background: #FF2626;
+	font-size: 1rem;
+	color: #fff;
+	text-transform: uppercase;
+	transition: .5s;
+}

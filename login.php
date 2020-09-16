@@ -11,9 +11,9 @@ if ($mysqli->connect_error) {
 
 $resultado = $mysqli->query("SELECT * FROM tb_usuario WHERE email_usuario = '$email' AND senha_usuario = '$senha'");
 if($resultado->num_rows > 0){
-    echo 1;
+    echo 200;
 }
 else{
-    echo 0;
+    echo 201;
 }
 ?>
