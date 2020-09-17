@@ -65,4 +65,51 @@ $(document).ready(function(){
             });
         }
     });
+
+    $("#validaEmail").on('click', function(){
+        $("#validaEmail").attr("disabled", "disabled");
+        var email = $('#email').val();
+        $.ajax({
+            url: "changepassword.php",
+            type: "GET",
+            data:{
+                email: email
+            },
+            success: function(response){
+                if(response == 200){
+                    $("#email").replaceWith("<input type='password' placeholder='Digite sua senha' id='senha'>");
+                    $("#validaEmail").replaceWith("<input type='button' id='trocaSenha' value='Trocar de senha'>");
+                    alert("Insira sua nova senha!");
+                }
+                else{
+                    alert("Email incorreto ou não cadastrado!");
+                    $("#validaEmail").removeAttr('disabled');
+                    console.log(response);
+                }
+            }
+        });
+    });
+    $(document).on('click', "#trocaSenha", function() {
+        $("#trocaSenha").attr("disabled", "disabled");
+        var senha = $("#senha").val();
+        $.ajax({
+            url: "changepassword.php",
+            type: "POST",
+            data:{
+                senha:senha
+            },
+            success: function(response){
+                if(response == 200){
+                    $("#trocaSenha").removeAttr('disabled');
+                    alert("Senha alterada com sucesso!");
+                    console.log(response);
+                }
+                else{
+                    $("#trocaSenha").removeAttr('disabled');
+                    alert("Houve algum problema com seu processo!");
+                    console.log(response);
+                }
+            }
+        });
+    });
 });
