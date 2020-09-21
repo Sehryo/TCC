@@ -51,6 +51,7 @@ CREATE TABLE tb_endereco(
 CREATE TABLE tb_endereco_usuario(
     id_usuario INT NOT NULL,
     id_endereco INT NOT NULL,
+    numero_endereco INT NOT NULL,
     CONSTRAINT FK_usuario_endereco
     FOREIGN KEY(id_usuario)
     REFERENCES tb_usuario(id_usuario)
@@ -106,6 +107,22 @@ CREATE TABLE tb_interesses(
     CONSTRAINT FK_evento_interesse
     FOREIGN KEY (id_evento)
     REFERENCES tb_evento(id_evento)
+    ON UPDATE CASCADE
+    ON DELETE CASCADE
+);
+
+CREATE TABLE tb_avaliacao(
+    id_usuario INT NOT NULL,
+    id_organizador INT NOT NULL,
+    valor_avaliacao INT NOT NULL,
+    CONSTRAINT FK_avaliador
+    FOREIGN KEY (id_usuario)
+    REFERENCES tb_usuario(id_usuario)
+    ON UPDATE CASCADE
+    ON DELETE CASCADE,
+    CONSTRAINT FK_avaliado
+    FOREIGN KEY (id_organizador)
+    REFERENCES tb_organizador(id_organizador)
     ON UPDATE CASCADE
     ON DELETE CASCADE
 );
