@@ -201,6 +201,34 @@ $(document).ready(function(){
                     console.log(response);
                 }
             }
-        })
+        });
+    });
+    $("#cadOrganizador").on('click', function(){
+        var email = $("#email").val();
+        var nome = $("#nome").val();
+        var cnpj = $("#cnpj").val();
+
+        $.ajax({
+            url: 'cadastrar-organizador.php',
+            type: 'POST',
+            data:{
+                email:email,
+                nome:nome,
+                cnpj:cnpj
+            },
+            cache:false,
+            success: function(response) {
+                if(response == 201){
+                    alert("CNPJ já cadastrado!");
+                }
+                else if(response == 200){
+                    alert("Registrado com sucesso!");
+                }
+                else{
+                    alert("Erro!");
+                    console.log(response);
+                }
+            }
+        });
     });
 });
