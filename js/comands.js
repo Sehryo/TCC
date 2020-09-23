@@ -177,7 +177,7 @@ $(document).ready(function(){
         var bairro = $("#bairro").val();
         var cidade = $("#cidade").val();
         var uf = $("#uf").val();
-        var logradouro = $("#logradouro").val();
+        var complemento = $("#complemento").val();
         var numCasa = $("#num_casa").val();
 
         $.ajax({
@@ -189,7 +189,7 @@ $(document).ready(function(){
                 bairro:bairro,
                 cidade:cidade,
                 uf:uf,
-                logradouro:logradouro,
+                complemento:complemento,
                 numCasa:numCasa
             },
             success: function(response){

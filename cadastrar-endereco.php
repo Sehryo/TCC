@@ -4,7 +4,7 @@ $rua = $_POST['rua'];
 $bairro = $_POST['bairro'];
 $cidade = $_POST['cidade'];
 $uf = $_POST['uf'];
-$logradouro = $_POST['logradouro'];
+$complemento = $_POST['complemento'];
 $numCasa = $_POST['numCasa'];
 
 $mysqli = new mysqli('localhost', 'root', '', 'db_culturama');
@@ -16,7 +16,7 @@ if($result->num_rows == 1){
     echo 200;
 }
 else{
-    $mysqli->query("INSERT INTO tb_endereco VALUES (default, '$rua', '$bairro', '$cidade', '$uf', '$cep', '$logradouro')");
+    $mysqli->query("INSERT INTO tb_endereco VALUES (default, '$rua', '$bairro', '$cidade', '$uf', '$cep', '$complemento')");
     $result = $mysqli->query("SELECT * FROM tb_endereco WHERE cep_endereco = '$cep'");
     $row = $result->fetch_assoc();
     $mysqli->query("INSERT INTO tb_endereco_usuario VALUES (1, '$row[id_endereco]', '$numCasa')");
