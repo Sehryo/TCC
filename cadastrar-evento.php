@@ -1,11 +1,25 @@
 <?php
+
+function limpa_mascara($valor){
+    $valor = trim($valor);
+    $valor = trim($valor);
+    $valor = str_replace(".", "", $valor);
+    $valor = str_replace(",", "", $valor);
+    $valor = str_replace("-", "", $valor);
+    $valor = str_replace("/", "", $valor);
+    $valor = str_replace("(","",$valor);
+    $valor = str_replace(")","",$valor);
+    $valor = str_replace(" ","",$valor);
+    return $valor;
+}
+
 $nome = $_POST['nome'];
 $desc = $_POST['desc'];
 $data = $_POST['data'];
 $hora_inicio = $_POST['hora_inicio'];
 $hora_fim = $_POST['hora_fim'];
 $tags = $_POST['tags'];
-$cep = $_POST['cep'];
+$cep = limpa_mascara($_POST['cep']);
 $rua = $_POST['rua'];
 $bairro = $_POST['bairro'];
 $cidade = $_POST['cidade'];

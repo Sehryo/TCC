@@ -1,0 +1,174 @@
+*{
+    font-family: robot, sans-serif;
+}
+
+body{
+    background-color: #E1E1E1;
+}
+
+.bg-nav{
+    background: #0099FF;
+    width: 100%;
+    height: 30px;
+    padding: 10px 0 10px 0;
+    z-index: 90;
+}
+
+.m-left{
+    margin-left: 20px;
+}
+
+.content-view{
+    width: 93%;
+    background-color: #ffff;
+    position: relative;
+    margin: 0 70px 0 50px;
+    justify-content: center;
+    height: 1920px;
+}
+
+#geral{
+    width: 100%;
+    position: relative;
+    height: 500px;
+}
+
+.col-45{
+    height: 50px;
+    float: left;
+    margin: 10px;
+}
+
+.col-90{
+    margin-bottom: 50px;
+    float: right;
+    margin: 15px 30px 0 0;
+}
+
+.col-90 .avaliacao-evento{
+    width: 50px;
+    height: 50px;
+    border: 1px solid #C4C4C4;
+    padding: 20px 5px 0px 5px;
+    text-align: center;
+    margin: 0 10px 0 0;
+    line-height: 8px;
+}
+
+.avaliacao-evento-num
+{
+    font-size: 30px;
+}
+
+.avaliacao-evento-qtd{
+    font-size: 10px;
+}
+
+.avaliacao-evento, .titulo-evento{
+    display: inline-block;
+}
+
+.titulo-evento h1
+{
+    font-size: 38px;
+    color: #374051; 
+}
+
+.titulo-evento p{
+    color: #525E75;
+}
+
+.buttons-evento{
+    margin-top: 10px;
+    position: relative;
+    align-items: right;
+    justify-content: right;
+}
+
+.buttons-evento input[type=radio],label{
+    margin: 10px 10px 0 0;
+}
+
+.buttons-evento button{
+    margin-right: 20px;
+}
+
+.buttons-evento:first-of-type {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 5px;
+  }
+
+.add-evento-agenda{
+    padding: 10px 25px 10px 25px;
+    border: none;
+    background-color: #374051;
+    color: #ffff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.buttons-evento input{
+    display: inline;
+}
+
+.info-evento{
+    margin-top: 15px;
+    line-height: 30px;
+}
+
+.info-evento-item1{
+    margin-right: 10px;
+}
+
+.col-90-img-slider img{
+    margin-top: 50px;
+    width: 350px;
+}
+
+hr.line{
+    border: none;
+    height: 1px;
+    width: 95%;
+    margin: 30px auto 30px auto;
+    background: #C4C4C4;
+}
+
+.desc-evento{
+    position: relative;
+    width: 95%;
+    margin: 0 auto 30px auto ;
+    line-height: 30px;
+}
+
+.desc-evento h1{
+    margin-bottom: 20px;
+    font-size: 30px;
+}
+
+.card-opiniao{
+    margin-top: 20px;
+}
+
+.card-opiniao i{
+    color: #C4C4C4;
+}
+
+.card-opiniao .star-1{
+    color: #2A8E9D;
+}
+
+.avaliacao-user{
+    font-size: 13px;
+}
+
+.desc-evento a{
+    text-decoration: none;
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 85px;
+
+    color: #2A8E9D;
+}

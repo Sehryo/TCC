@@ -3,10 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 23-Set-2020 às 17:46
+-- Tempo de geração: 30-Set-2020 às 17:30
 -- Versão do servidor: 10.4.13-MariaDB
 -- versão do PHP: 7.4.7
-
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
@@ -20,10 +19,10 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `db_culturama`
 --
-
--- --------------------------------------------------------
 CREATE DATABASE db_culturama;
 USE db_culturama;
+-- --------------------------------------------------------
+
 --
 -- Estrutura da tabela `tb_avaliacao`
 --
@@ -34,11 +33,13 @@ CREATE TABLE `tb_avaliacao` (
   `valor_avaliacao` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+
 -- --------------------------------------------------------
 
 --
 -- Estrutura da tabela `tb_endereco`
 --
+
 
 CREATE TABLE `tb_endereco` (
   `id_endereco` int(11) NOT NULL,
@@ -53,10 +54,6 @@ CREATE TABLE `tb_endereco` (
 --
 -- Extraindo dados da tabela `tb_endereco`
 --
-
-INSERT INTO `tb_endereco` (`id_endereco`, `rua_endereco`, `bairro_endereco`, `cidade_endereco`, `uf_endereco`, `cep_endereco`, `complemento_endereco`) VALUES
-(6, 'Rua José Pedro Nogueira Filho', 'Jardim Mituzi', 'Taboão da Serra', 'SP', '06775280', 'Casa 1'),
-(8, 'Rua Vinte e Cinco de Janeiro', 'Jardim São Salvador', 'Taboão da Serra', 'SP', '06775380', 'Casa 12');
 
 -- --------------------------------------------------------
 
@@ -74,9 +71,6 @@ CREATE TABLE `tb_endereco_usuario` (
 -- Extraindo dados da tabela `tb_endereco_usuario`
 --
 
-INSERT INTO `tb_endereco_usuario` (`id_usuario`, `id_endereco`, `numero_endereco`) VALUES
-(1, 6, 116),
-(1, 8, 2313);
 
 -- --------------------------------------------------------
 
@@ -87,17 +81,21 @@ INSERT INTO `tb_endereco_usuario` (`id_usuario`, `id_endereco`, `numero_endereco
 CREATE TABLE `tb_evento` (
   `id_evento` int(11) NOT NULL,
   `nome_evento` varchar(255) NOT NULL,
-  `descricao_evento` LONGTEXT NOT NULL,
-  `data_evento` DATE NOT NULL,
+  `descricao_evento` longtext NOT NULL,
+  `data_evento` date NOT NULL,
   `horario_entrada` time DEFAULT NULL,
   `horario_saida` time DEFAULT NULL,
   `id_organizador` int(11) NOT NULL,
   `id_endereco` int(11) NOT NULL,
-  `num_endereco` INT NOT NULL,
+  `num_endereco` int(11) NOT NULL,
   `tags_evento` varchar(255) DEFAULT NULL,
-  `imagem_evento` LONGBLOB DEFAULT NULL,
+  `imagem_evento` longblob DEFAULT NULL,
   `tipo_imagem` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `tb_evento`
+--
 
 -- --------------------------------------------------------
 
@@ -114,21 +112,38 @@ CREATE TABLE `tb_interesses` (
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `tb_local_fixo`
+--
+
+CREATE TABLE `tb_local_fixo`(
+`id_local` INT NOT NULL,
+`nome_local` varchar(255) NOT NULL,
+`email_local` varchar(255) NOT NULL,
+`descricao_local` longtext NOT NULL,
+`telefone_local` varchar(15) NOT NULL,
+`funcionamento_local` varchar(255) NOT NULL,
+`tags_local` varchar(255) NOT NULL,
+`id_endereco` int NOT NULL,
+`id_organizador` int not null
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `tb_organizador`
 --
 
 CREATE TABLE `tb_organizador` (
   `id_organizador` int(11) NOT NULL,
   `nome_organizador` varchar(255) NOT NULL,
-  `email_organizador` varchar(255) NOT NULL
+  `email_organizador` varchar(255) NOT NULL,
+  `senha_organizador` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `tb_organizador`
 --
 
-INSERT INTO `tb_organizador` (`id_organizador`, `nome_organizador`, `email_organizador`) VALUES
-(1, 'YMCA', 'ymcausback@jajaja.com');
 
 -- --------------------------------------------------------
 
@@ -155,9 +170,6 @@ CREATE TABLE `tb_pj` (
 --
 -- Extraindo dados da tabela `tb_pj`
 --
-
-INSERT INTO `tb_pj` (`cnpj_pj`, `id_organizador`) VALUES
-('12345678912', 1);
 
 -- --------------------------------------------------------
 
@@ -190,9 +202,6 @@ CREATE TABLE `tb_usuario` (
 --
 -- Extraindo dados da tabela `tb_usuario`
 --
-
-INSERT INTO `tb_usuario` (`id_usuario`, `nome_usuario`, `senha_usuario`, `email_usuario`, `telefone_usuario`, `dataNasc_usuario`, `tags_usuario`) VALUES
-(1, 'Pedro Paulo Arimura', 'jotaroooo', 'dioooo@gmail.com', '11958519513', '2002-09-06', NULL);
 
 --
 -- Índices para tabelas despejadas
@@ -265,6 +274,14 @@ ALTER TABLE `tb_usuario`
   ADD PRIMARY KEY (`id_usuario`);
 
 --
+-- Índices para tabela `tb_endereco`
+--
+ALTER TABLE `tb_local_fixo`
+  ADD PRIMARY KEY (`id_local`),
+  ADD KEY `FK_organizador_local` (`id_organizador`),
+  ADD KEY `FK_endereco_local` (`id_endereco`);
+
+--
 -- AUTO_INCREMENT de tabelas despejadas
 --
 
@@ -272,7 +289,7 @@ ALTER TABLE `tb_usuario`
 -- AUTO_INCREMENT de tabela `tb_endereco`
 --
 ALTER TABLE `tb_endereco`
-  MODIFY `id_endereco` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_endereco` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `tb_evento`
@@ -284,7 +301,7 @@ ALTER TABLE `tb_evento`
 -- AUTO_INCREMENT de tabela `tb_organizador`
 --
 ALTER TABLE `tb_organizador`
-  MODIFY `id_organizador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_organizador` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `tb_setor_evento`
@@ -296,7 +313,7 @@ ALTER TABLE `tb_setor_evento`
 -- AUTO_INCREMENT de tabela `tb_usuario`
 --
 ALTER TABLE `tb_usuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20200922;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restrições para despejos de tabelas
@@ -347,6 +364,13 @@ ALTER TABLE `tb_pj`
 --
 ALTER TABLE `tb_setor_evento`
   ADD CONSTRAINT `FK_setor_evento` FOREIGN KEY (`id_evento`) REFERENCES `tb_evento` (`id_evento`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Limitadores para a tabela `tb_local_fixo`
+--
+ALTER TABLE `tb_local_fixo`
+  ADD CONSTRAINT `FK_organizador_local` FOREIGN KEY (`id_organizador`) REFERENCES `tb_organizador` (`id_organizador`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `FK_endereco_local` FOREIGN KEY (`id_endereco`) REFERENCES `tb_endereco` (`id_endereco`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

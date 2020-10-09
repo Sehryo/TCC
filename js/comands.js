@@ -40,30 +40,58 @@ $(document).ready(function(){
         $("#login").attr("disabled", "disabled");
         var email = $('#email').val();
         var senha = $('#senha').val();
-
-        if(email != "" && senha != ""){
-            $.ajax({
-                url: "login.php",
-                type: "POST",
-                data:{
-                    email: email,
-                    senha: senha
-                },
-                cache: false,
-                success: function(response){
-                    if(response == 200){
-                        alert("Login efetuado com sucesso!");
-                        $("#login").removeAttr('disabled');
-                        console.log(response);
+        if($('#manterConectado').is(":checked")){
+            if(email != "" && senha != ""){
+                $.ajax({
+                    url: "login.php",
+                    type: "POST",
+                    data:{
+                        email: email,
+                        senha: senha,
+                        manterConectado: "on"
+                    },
+                    cache: false,
+                    success: function(response){
+                        if(response == 200){
+                            alert("Login efetuado com sucesso!");
+                            $("#login").removeAttr('disabled');
+                            console.log(response);
+                        }
+                        else{
+                            alert("Senha ou usuário incorretos!");
+                            $("#login").removeAttr('disabled');
+                            console.log(response);
+                        }
                     }
-                    else{
-                        alert("Senha ou usuário incorretos!");
-                        $("#login").removeAttr('disabled');
-                        console.log(response);
-                    }
-                }
-            });
+                });
+            }
         }
+        else{
+            if(email != "" && senha != ""){
+                $.ajax({
+                    url: "login.php",
+                    type: "POST",
+                    data:{
+                        email: email,
+                        senha: senha
+                    },
+                    cache: false,
+                    success: function(response){
+                        if(response == 200){
+                            alert("Login efetuado com sucesso!");
+                            $("#login").removeAttr('disabled');
+                            console.log(response);
+                        }
+                        else{
+                            alert("Senha ou usuário incorretos!");
+                            $("#login").removeAttr('disabled');
+                            console.log(response);
+                        }
+                    }
+                });
+            }
+        }
+        $("#login").removeAttr('disabled');
     });
 
     $("#validaEmail").on('click', function(){
@@ -207,6 +235,7 @@ $(document).ready(function(){
         var email = $("#email").val();
         var nome = $("#nome").val();
         var cnpj = $("#cnpj").val();
+        var senha = $("#senha").val();
 
         $.ajax({
             url: 'cadastrar-organizador.php',
@@ -214,7 +243,8 @@ $(document).ready(function(){
             data:{
                 email:email,
                 nome:nome,
-                cnpj:cnpj
+                cnpj:cnpj,
+                senha:senha
             },
             cache:false,
             success: function(response) {
