@@ -83,15 +83,15 @@
                 foreach($events as $row){
                     $endereco = $mysqli->query("SELECT * FROM tb_endereco WHERE id_endereco =".$row['id_endereco']."");
                     $endereco = $endereco->fetch_assoc();
-                    echo ("<a href='pagina-evento.php?evento=".$row['id_evento']."' style='font-style: none'>
-                        <div>
+                    echo ("<a href='pagina-evento.php?evento=".$row['id_evento']."' style='text-decotation: none'>
+                        <section>
                             <img src='data:image;base64,".base64_encode($row['imagem_evento'])."' alt='Image' type='".$row['tipo_imagem']."' style='width:100px; height:100px; display:block'>
                             <div style='display:inline; width:300px'>
                                 <p>".$row['nome_evento']."</p>
                                 <p>".$row['descricao_evento']."</p>
                                 <p>".$endereco['rua_endereco'] .', ' .$endereco['cidade_endereco'] .', ' .$endereco['uf_endereco']. "</p>
                             </div>
-                        </div>
+                        </section>
                         </a>");
                 }
             }

@@ -1,4 +1,8 @@
 $(document).ready(function(){
+    if(Cookies.get("UserConnected") === "undefined"){
+        alert('aa');
+    }
+    alert(Cookies.get("UserConnected"));
     $("#enviar").on('click', function(){
         $("#enviar").attr("disabled", "disabled");
         var nome = $("#nome").val();
